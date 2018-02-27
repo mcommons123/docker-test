@@ -6,7 +6,9 @@ MAINTAINER Morgan Commons
 #       CMD
 #       ENTRYPOINT
 #       EXPOSE
-RUN     apt-get update && \
-        apt-get -y install iputils-ping
 
-CMD ["/bin/ping","8.8.8.8"]
+RUN apt-get update && apt-get install -y apache2
+EXPOSE 80
+ENTRYPOINT ["/usr/bin/apachectl", "-D", "FOREGROUND"]
+
+
