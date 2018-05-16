@@ -1,14 +1,6 @@
-FROM library/debian:stretch
-MAINTAINER Morgan Commons
-#RUN    apt-get update && \
-#       apt-get -y install
-#       ADD / COPY
-#       CMD
-#       ENTRYPOINT
-#       EXPOSE
-
-RUN apt-get update && apt-get install -y apache2
-EXPOSE 80
-ENTRYPOINT ["/usr/bin/apachectl", "-D", "FOREGROUND"]
+FROM node:8
+COPY server.js /
+EXPOSE 3000
+CMD ["node", "/server.js"]
 
 
